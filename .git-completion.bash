@@ -1258,3 +1258,9 @@ complete -o default -o nospace -F _git_name_rev git-name-rev.exe
 complete -o default -o nospace -F _git_push git-push.exe
 complete -o default -o nospace -F _git_config git-config
 complete -o default -o nospace -F _git_shortlog git-shortlog.exe
+complete -o default -o nospace -F _git_show git-show.exe
+complete -o default -o nospace -F _git_log git-show-branch.exe
+complete -o default -o nospace -F _git_tag git-tag.exe
+complete -o default -o nospace -F _git_log git-whatchanged.exe
+fi
+
