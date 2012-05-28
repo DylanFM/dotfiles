@@ -1,6 +1,7 @@
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
+set nocp                          " Set not compatible
 set showmode                      " Display the mode you're in.
 set backspace=indent,eol,start    " Intuitive backspacing.
 set ignorecase                    " Case-insensitive searching.
