@@ -1,0 +1,7 @@
+-a
+--type-add=ruby=haml,feature,sass,rake
+-C
+--ignore-dir=vendor
+--ignore-dir=log
+--ignore-dir=coverage
+--type-set=tmstuff=.tmproj,.tm_build_errors

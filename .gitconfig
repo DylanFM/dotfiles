@@ -1,0 +1,27 @@
+[user]
+  name = Dylan Fogarty-MacDonald
+  email = dylan@dylanfm.com
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+[merge]
+  summary = true
+  mergeoptions = --no-commit --no-ff
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
+  rb = rebase
+  cp = cherry-pick
+[push]
+  default = current
+[pack]
+  threads = 0

@@ -1,0 +1,21 @@
+alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+alias mongostart='sudo mongod run --config /usr/local/Cellar/mongodb/2.0.0-x86_64/mongod.conf'
+alias redisstart='redis-server /usr/local/etc/redis.conf'
+
+alias coffee='/Users/dylan/node_modules/coffee-script/bin/coffee'
+alias memcached='/usr/local/bin/memcached'
+
+
+alias coffee_rails='coffee -o public/javascripts/ -wl app/scripts/*'
+alias be='bundle exec'
+alias gs='git status'
+alias diffx='git diff --staged | gitx'
+alias devlog='tail -f log/development.log'
+alias testlog='tail -f log/test.log'
+alias make="make -j4"
+
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
