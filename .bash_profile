@@ -14,9 +14,5 @@ source ~/.git-completion.bash
 # Git prompt
 source ~/.git-prompt
 
-NVM_DIR=$HOME/.nvm
-. $NVM_DIR/nvm.sh
-nvm use v0.6.15
-
 # RBenv
 eval "$(rbenv init -)"
