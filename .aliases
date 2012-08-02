@@ -3,9 +3,7 @@ alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias mongostart='sudo mongod run --config /usr/local/Cellar/mongodb/2.0.0-x86_64/mongod.conf'
 alias redisstart='redis-server /usr/local/etc/redis.conf'
 
-alias coffee='/Users/dylan/node_modules/coffee-script/bin/coffee'
 alias memcached='/usr/local/bin/memcached'
-
 
 alias coffee_rails='coffee -o public/javascripts/ -wl app/scripts/*'
 alias be='bundle exec'
