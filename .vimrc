@@ -19,7 +19,8 @@ set expandtab                     " Use spaces instead of tabs
 
 set wildignore+=*/tmp/*,*/log/*,*/.git/*,*.so,*.swp " ctrl-p, ignore these files please
 
-let $JS_CMD='node'                " Use Node.js for JavaScript interpretation
+let $JS_CMD='node'                      " Use Node.js for JavaScript interpretation
+let coffee_compiler = '/usr/bin/coffee' " Set the path to coffee
 let coffee_no_trailing_space_error = 1
 
 colorscheme jellybeans
