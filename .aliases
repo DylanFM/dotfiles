@@ -1,6 +1,6 @@
 alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-alias mongostart='sudo mongod run --config /usr/local/Cellar/mongodb/2.0.0-x86_64/mongod.conf'
+alias mongostart='sudo mongod run --config /usr/local/etc/mongod.conf'
 alias redisstart='redis-server /usr/local/etc/redis.conf'
 
 alias coffee='/Users/dylan/node_modules/coffee-script/bin/coffee'
