@@ -1,7 +1,6 @@
 export AUTOFEATURE=true autospec
 export RUBYOPT="rubygems"
 export ARCHFLAGS="-arch x86_64"
-export LDFLAGS=-L/usr/local/lib
 
 export clients='/Users/dylan/Business/SCNM/Clients'
 export dev='/Users/dylan/Development'
