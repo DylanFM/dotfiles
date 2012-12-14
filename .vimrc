@@ -17,7 +17,7 @@ set tabstop=2                     " Global tab width.
 set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
 
-set wildignore+="/vendor/bundle/*,*/public/system/*,*/node_modules/*,*/tmp/*,*/log/*,*/.git/*,*.so,*.swp " ctrl-p, ignore these files please
+set wildignore+=*/vendor/bundle/*,*/public/system/*,*/node_modules/*,*/tmp/*,*/log/*,*/.git/*,*.so,*.swp " ctrl-p, ignore these files please
 
 let $JS_CMD='node'                      " Use Node.js for JavaScript interpretation
 let coffee_compiler = '/usr/bin/coffee' " Set the path to coffee
