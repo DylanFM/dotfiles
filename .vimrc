@@ -39,3 +39,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 highlight clear SignColumn " sign column should be background colour
+
+" Sign column should always be shown, so gitgutter doesn't flash on save etc
+sign define dummy
+execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
