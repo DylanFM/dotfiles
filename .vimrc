@@ -16,6 +16,7 @@ set visualbell                    " No beeping.
 set tabstop=2                     " Global tab width.
 set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
+set laststatus=2                  " Not sure exactly what this does, but it keeps vim-airline in view
 
 set wildignore+=*/vendor/bundle/*,*/public/system/*,*/node_modules/*,*/tmp/*,*/log/*,*/.git/*,*.so,*.swp " ctrl-p, ignore these files please
 
