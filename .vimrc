@@ -28,6 +28,8 @@ let coffee_compiler = '/usr/bin/coffee' " Set the path to coffee
 let coffee_no_trailing_space_error = 1
 let g:ackprg = 'ag --nogroup --nocolor --column' " Use The Silver Searcher (ag) instead of ack
 
+set t_Co=256 " Use 256 colours
+
 colorscheme jellybeans
 
 " stop arrow keys working in insert mode!

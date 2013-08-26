@@ -10,3 +10,6 @@ bind r source-file ~/.tmux.conf
 # quick pane cycling
 unbind ^A
 bind ^A select-pane -t :.+
+
+# report as being able to use 256 colours
+set -g terminal-overrides 'xterm:colors=256'
