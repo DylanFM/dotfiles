@@ -5,7 +5,7 @@ bind C-a send-prefix
 
 # force a reload of the config file
 unbind r
-bind r source-file ~/.tmux.conf
+bind r source-file ~/.tmux
 
 # quick pane cycling
 unbind ^A
