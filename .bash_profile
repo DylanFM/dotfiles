@@ -7,6 +7,8 @@ for file in ~/.{exports,aliases}; do
 done
 unset file
 
+PATH=$GOPATH/bin:$PATH
+
 # Git completion! thx Matta
 source ~/.git-completion.bash
 

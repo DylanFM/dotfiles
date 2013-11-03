@@ -2,6 +2,9 @@ export AUTOFEATURE=true autospec
 export RUBYOPT="rubygems"
 export ARCHFLAGS="-arch x86_64"
 
+export GOROOT="/usr/local/go/"
+export GOPATH="$HOME/go"
+
 export clients='/Users/dylan/Business/SCNM/Clients'
 export dev='/Users/dylan/Development'
 export devwork='/Users/dylan/Development/Work'
