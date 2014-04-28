@@ -30,7 +30,8 @@ let g:ackprg = 'ag --nogroup --nocolor --column' " Use The Silver Searcher (ag) 
 
 set t_Co=256 " Use 256 colours
 
-colorscheme jellybeans
+set background=dark
+colorscheme solarized
 
 " stop arrow keys working in insert mode!
 inoremap <Left>  <NOP>
