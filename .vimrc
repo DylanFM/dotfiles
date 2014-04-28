@@ -18,7 +18,7 @@ set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
 
 set laststatus=2                  " Not sure exactly what this does, but it keeps vim-airline in view
-let g:airline_theme='simple'      " vim-airline's theme
+let g:airline_theme='solarized'   " vim-airline's theme
 set noshowmode                    " Disable regular staus line
 
 set wildignore+=*/vendor/bundle/*,*/public/system/*,*/node_modules/*,*/tmp/*,*/log/*,*/.git/*,*.so,*.swp " ctrl-p, ignore these files please
