@@ -34,6 +34,9 @@ set t_Co=256 " Use 256 colours
 set background=dark
 colorscheme solarized
 
+" Syntastic
+" let g:syntastic_<filetype>_checkers = ['<checker-name>']
+
 " stop arrow keys working in insert mode!
 inoremap <Left>  <NOP>
 inoremap <Right> <NOP>
