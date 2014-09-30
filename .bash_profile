@@ -1,4 +1,4 @@
-PATH=$HOME/.rbenv/bin:/usr/local/git/bin:/usr/local/bin:/usr/local/heroku/bin:$PATH
+PATH=$HOME/.rbenv/bin:$GOPATH/bin:/usr/local/git/bin:/usr/local/heroku/bin:/usr/local/bin:/opt/X11/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
