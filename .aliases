@@ -1,18 +1,7 @@
-alias pgstart='pg_ctl -D /usr/local/var/postgres9.3 -l /usr/local/var/postgres/server.log start'
-alias pgstop='pg_ctl -D /usr/local/var/postgres9.3 stop -s -m fast'
-alias mongostart='sudo mongod run --config /usr/local/etc/mongod.conf'
 alias redisstart='launchctl load -w ~/Library/LaunchAgents/*.redis.plist'
 alias redisstop='launchctl unload -w ~/Library/LaunchAgents/*.redis.plist'
 
-alias memcached='/usr/local/bin/memcached'
-
-alias coffee_rails='coffee -o public/javascripts/ -wl app/scripts/*'
 alias be='bundle exec'
-alias gs='git status'
-alias diffx='git diff --staged | gitx'
-alias devlog='tail -f log/development.log'
-alias testlog='tail -f log/test.log'
-alias make="make -j4"
 
 alias ..='cd ../'
 alias ...='cd ../../'
