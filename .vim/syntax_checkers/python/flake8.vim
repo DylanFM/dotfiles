@@ -19,8 +19,7 @@ function! SyntaxCheckers_python_flake8_GetHighlightRegex(item)
 endfunction
 
 function! SyntaxCheckers_python_flake8_GetLocList() dict
-    let makeprg = self.makeprgBuild({
-        \ 'exe_before': (syntastic#util#isRunningWindows() ? '' : 'TERM=dumb') })
+    let makeprg = self.makeprgBuild({})
 
     let errorformat =
         \ '%E%f:%l: could not compile,%-Z%p^,' .
@@ -28,9 +27,12 @@ function! SyntaxCheckers_python_flake8_GetLocList() dict
         \ '%A%f:%l: %t%n %m,' .
         \ '%-G%.%#'
 
+    let env = syntastic#util#isRunningWindows() ? {} : { 'TERM': 'dumb' }
+
     let loclist = SyntasticMake({
         \ 'makeprg': makeprg,
-        \ 'errorformat': errorformat })
+        \ 'errorformat': errorformat,
+        \ 'env': env })
 
     for e in loclist
         " E*** and W*** are pep8 errors
@@ -67,4 +69,4 @@ call g:SyntasticRegistry.CreateAndRegisterChecker({
 let &cpo = s:save_cpo
 unlet s:save_cpo
 
-" vim: set et sts=4 sw=4:
+" vim: set sw=4 sts=4 et fdm=marker:

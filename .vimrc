@@ -22,12 +22,11 @@ let g:airline_theme='solarized'   " vim-airline's theme
 let g:airline_powerline_fonts = 1 " Use powerline separators from patched font
 set noshowmode                    " Disable regular staus line
 
-set wildignore+=*/vendor/bundle/*,*/public/system/*,*/node_modules/*,*/tmp/*,*/log/*,*/.git/*,*.so,*.swp " ctrl-p, ignore these files please
+set wildignore+=*/.sass-cache/*,*/node_modules/*,*/bower_components/*,*/tmp/*,*/log/*,*/.git/*,*.so,*.swp " ctrl-p, ignore these files please
 
 let $JS_CMD='node'                      " Use Node.js for JavaScript interpretation
 let coffee_compiler = '/usr/bin/coffee' " Set the path to coffee
 let coffee_no_trailing_space_error = 1
-let g:ackprg = 'ag --nogroup --nocolor --column' " Use The Silver Searcher (ag) instead of ack
 
 set t_Co=256 " Use 256 colours
 

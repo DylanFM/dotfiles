@@ -18,23 +18,30 @@ let g:loaded_syntastic_python_python_checker = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-let s:compiler = expand('<sfile>:p:h') . syntastic#util#Slash() . 'compile.py'
+let s:compiler = expand('<sfile>:p:h', 1) . syntastic#util#Slash() . 'compile.py'
 
 function! SyntaxCheckers_python_python_IsAvailable() dict
-    return executable(self.getExec()) &&
-        \ syntastic#util#versionIsAtLeast(syntastic#util#getVersion(self.getExecEscaped() . ' --version'), [2, 6])
+    if !executable(self.getExec())
+        return 0
+    endif
+
+    let ver = syntastic#util#getVersion(self.getExecEscaped() . ' --version')
+    call self.log(self.getExec() . ' version =', ver)
+
+    return syntastic#util#versionIsAtLeast(ver, [2, 6])
 endfunction
 
 function! SyntaxCheckers_python_python_GetLocList() dict
-    let makeprg = self.makeprgBuild({
-        \ 'exe_before': (syntastic#util#isRunningWindows() ? '' : 'TERM=dumb'),
-        \ 'exe': [self.getExec(), s:compiler] })
+    let makeprg = self.makeprgBuild({ 'exe': [self.getExec(), s:compiler] })
 
     let errorformat = '%E%f:%l:%c: %m'
+
+    let env = syntastic#util#isRunningWindows() ? {} : { 'TERM': 'dumb' }
 
     return SyntasticMake({
         \ 'makeprg': makeprg,
         \ 'errorformat': errorformat,
+        \ 'env': env,
         \ 'returns': [0] })
 endfunction
 
@@ -45,4 +52,4 @@ call g:SyntasticRegistry.CreateAndRegisterChecker({
 let &cpo = s:save_cpo
 unlet s:save_cpo
 
-" vim: set et sts=4 sw=4:
+" vim: set sw=4 sts=4 et fdm=marker:

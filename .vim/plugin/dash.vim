@@ -14,18 +14,6 @@ let loaded_dash = 1
 let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
-"{{{ Load funcoo.vim
-if !exists('g:loaded_funcoo')
-  let funcoo = findfile('plugin/funcoo.vim', &runtimepath)
-  if empty(funcoo)
-    echohl WarningMsg
-    echomsg 'dash.vim: dependencies are not met. please install funcoo.vim'
-    echohl None
-    finish
-  endif
-endif
-"}}}
-
 "{{{ Dash command
 if exists(':Dash') == 2
   echohl WarningMsg
@@ -49,19 +37,14 @@ if exists(':DashKeywords') == 2
   echomsg 'dash.vim: could not create command DashKeywords'
   echohl None
 else
-  command -complete=customlist,dash#complete -nargs=+ DashKeywords call dash#keywords(<f-args>)
+  command -complete=customlist,dash#complete -nargs=* DashKeywords call dash#keywords(<f-args>)
 endif
 "}}}
 
-"{{{ DashSettings command
-if exists(':DashSettings') == 2
-  echohl WarningMsg
-  echomsg 'dash.vim: could not create command DashSettings'
-  echohl None
-else
-  command -nargs=0 DashSettings call dash#settings()
+if !exists('g:dash_autocommands')
+  let g:dash_autocommands = 1
+  call dash#autocommands()
 endif
-"}}}
 
 let &cpoptions = s:save_cpoptions
 unlet s:save_cpoptions

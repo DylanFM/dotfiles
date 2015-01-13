@@ -1,6 +1,8 @@
 " MIT License. Copyright (c) 2013-2014 Bailey Ling.
 " vim: et ts=2 sts=2 sw=2
 
+scriptencoding utf-8
+
 let s:skip_symbol = '…'
 
 function! airline#extensions#tabline#unique_tail_improved#format(bufnr, buffers)
@@ -14,9 +16,9 @@ function! airline#extensions#tabline#unique_tail_improved#format(bufnr, buffers)
 
   for nr in a:buffers
     let name = bufname(nr)
-    if !empty(name) && nr != a:bufnr && fnamemodify(name, ':t') == curbuf_tail
+    if !empty(name) && nr != a:bufnr && fnamemodify(name, ':t') == curbuf_tail " only perform actions if curbuf_tail isn't unique
       let do_deduplicate = 1
-      let tokens = reverse(split(substitute(fnamemodify(name, ':p:.:h'), '\\', '/', 'g'), '/'))
+      let tokens = reverse(split(substitute(fnamemodify(name, ':p:h'), '\\', '/', 'g'), '/'))
       let token_index = 0
       for token in tokens
         if token == '' | continue | endif
@@ -33,7 +35,7 @@ function! airline#extensions#tabline#unique_tail_improved#format(bufnr, buffers)
   if do_deduplicate == 1
     let path = []
     let token_index = 0
-    for token in reverse(split(substitute(fnamemodify(bufname(a:bufnr), ':p:.:h'), '\\', '/', 'g'), '/'))
+    for token in reverse(split(substitute(fnamemodify(bufname(a:bufnr), ':p:h'), '\\', '/', 'g'), '/'))
       if token == '.' | break | endif
       let duplicated = 0
       let uniq = 1
