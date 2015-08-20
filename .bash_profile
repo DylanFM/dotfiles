@@ -15,6 +15,3 @@ source ~/.git-prompt
 
 # RBenv
 eval "$(rbenv init -)"
-
-# Docker
-$(boot2docker shellinit)
