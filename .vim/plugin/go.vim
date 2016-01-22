@@ -9,6 +9,7 @@ let g:go_loaded_install = 1
 " needed by the user with GoInstallBinaries
 let s:packages = [
             \ "github.com/nsf/gocode",
+            \ "github.com/alecthomas/gometalinter", 
             \ "golang.org/x/tools/cmd/goimports",
             \ "github.com/rogpeppe/godef",
             \ "golang.org/x/tools/cmd/oracle",
@@ -16,12 +17,14 @@ let s:packages = [
             \ "github.com/golang/lint/golint",
             \ "github.com/kisielk/errcheck",
             \ "github.com/jstemmer/gotags",
+            \ "github.com/klauspost/asmfmt/cmd/asmfmt",
             \ ]
 
 " These commands are available on any filetypes
 command! GoInstallBinaries call s:GoInstallBinaries(-1)
 command! GoUpdateBinaries call s:GoInstallBinaries(1)
 command! -nargs=? -complete=dir GoPath call go#path#GoPath(<f-args>)
+
 
 " GoInstallBinaries downloads and install all necessary binaries stated in the
 " packages variable. It uses by default $GOBIN or $GOPATH/bin as the binary
@@ -61,6 +64,15 @@ function! s:GoInstallBinaries(updateBinaries)
         set noshellslash
     endif
 
+    let cmd = "go get -u -v "
+
+    let s:go_version = matchstr(system("go version"), '\d.\d.\d')
+
+    " https://github.com/golang/go/issues/10791
+    if s:go_version > "1.4.0" && s:go_version < "1.5.0"
+        let cmd .= "-f " 
+    endif
+
     for pkg in s:packages
         let basename = fnamemodify(pkg, ":t")
         let binname = "go_" . basename . "_bin"
@@ -77,7 +89,8 @@ function! s:GoInstallBinaries(updateBinaries)
                 echo "vim-go: ". basename ." not found. Installing ". pkg . " to folder " . go_bin_path
             endif
 
-            let out = system("go get -u -v -f ".shellescape(pkg))
+
+            let out = system(cmd . shellescape(pkg))
             if v:shell_error
                 echo "Error installing ". pkg . ": " . out
             endif
@@ -107,6 +120,23 @@ endfunction
 
 " Autocommands
 " ============================================================================
+"
+function! s:echo_go_info()
+    if !exists('v:completed_item') || empty(v:completed_item)
+        return
+    endif
+    let item = v:completed_item
+
+    if !has_key(item, "info")
+        return
+    endif
+
+    if empty(item.info)
+        return
+    endif
+
+    redraws! | echo "vim-go: " | echohl Function | echon item.info | echohl None
+endfunction
 
 augroup vim-go
     autocmd!
@@ -116,11 +146,26 @@ augroup vim-go
         autocmd CursorHold *.go nested call go#complete#Info()
     endif
 
-    " code formatting on save
+    " Echo the identifier information when completion is done. Useful to see
+    " the signature of a function, etc...
+    if exists('##CompleteDone')
+        autocmd CompleteDone *.go nested call s:echo_go_info()
+    endif
+
+    " Go code formatting on save
     if get(g:, "go_fmt_autosave", 1)
         autocmd BufWritePre *.go call go#fmt#Format(-1)
     endif
 
+    " Go asm formatting on save
+    if get(g:, "go_asmfmt_autosave", 1)
+        autocmd BufWritePre *.s call go#asmfmt#Format()
+    endif
+
+    " run gometalinter on save
+    if get(g:, "go_metalinter_autosave", 0)
+        autocmd BufWritePost *.go call go#lint#Gometa(1)
+    endif
 augroup END
 
 
