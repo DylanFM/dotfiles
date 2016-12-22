@@ -5,7 +5,7 @@ for file in ~/.{exports,aliases}; do
 done
 unset file
 
-PATH=/usr/local/heroku/bin:$HOME/.rbenv/bin:$GOPATH/bin:/usr/local/git/bin:/usr/local/go/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin/:/usr/local/bin:/opt/X11/bin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH=/usr/local/heroku/bin:$HOME/.rbenv/bin:$GOPATH/bin:/usr/local/git/bin:/usr/local/go/bin:/Applications/Postgres.app/Contents/Versions/latest/bin/:/usr/local/bin:/opt/X11/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # Git completion! thx Matta
 source ~/.git-completion.bash
