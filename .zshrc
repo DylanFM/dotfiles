@@ -1,8 +1,8 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.rbenv/bin:$GOPATH/bin:/usr/local/git/bin:$GOROOT/bin:/Applications/Postgres.app/Contents/Versions/latest/bin/:$HOME/bin:/usr/local/bin:$PATH
-
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
+
+# If you come from bash you might have to change your $PATH.
+export PATH=/usr/local/opt/mysql@5.6/bin:$HOME/.rbenv/bin:$GOPATH/bin:/usr/local/git/bin:$GOROOT/bin:/Applications/Postgres.app/Contents/Versions/latest/bin/:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/dylan/.oh-my-zsh
