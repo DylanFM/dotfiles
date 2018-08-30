@@ -1,4 +1,21 @@
-call pathogen#infect()
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
+Plug 'benmills/vimux'
+Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-rails'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+Plug '/usr/local/opt/fzf'
+
+call plug#end()
+
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
@@ -61,3 +78,4 @@ highlight clear SignColumn " sign column should be background colour
 " Sign column should always be shown, so gitgutter doesn't flash on save etc
 sign define dummy
 execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
+" Specify a directory for plugins
