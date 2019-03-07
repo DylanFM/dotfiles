@@ -6,8 +6,9 @@ Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'benmills/vimux'
 Plug 'vim-syntastic/syntastic'
-Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -73,6 +74,9 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+" Trigger fzf
+nnoremap <leader>f :Files<cr>
 
 highlight clear SignColumn " sign column should be background colour
 
