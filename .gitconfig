@@ -13,11 +13,11 @@
   excludesfile = ~/.gitignore
   editor = vim
 [alias]
-  st = status
+  s = status
   ci = commit
   br = branch
   co = checkout
-  df = diff
+  d = diff
   lg = log -p
   rb = rebase
   cp = cherry-pick

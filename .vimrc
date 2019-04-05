@@ -1,4 +1,25 @@
-call pathogen#infect()
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
+Plug 'benmills/vimux'
+Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'elmcast/elm-vim'
+Plug 'leafgarland/typescript-vim'
+
+call plug#end()
+
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
@@ -56,8 +77,18 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Trigger fzf
+nnoremap <leader>f :Files<cr>
+
 highlight clear SignColumn " sign column should be background colour
 
 " Sign column should always be shown, so gitgutter doesn't flash on save etc
 sign define dummy
 execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
+" Specify a directory for plugins
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }

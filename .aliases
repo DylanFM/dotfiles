@@ -1,9 +1,0 @@
-alias redisstart='launchctl load -w ~/Library/LaunchAgents/*.redis.plist'
-alias redisstop='launchctl unload -w ~/Library/LaunchAgents/*.redis.plist'
-
-alias be='bundle exec'
-
-alias ..='cd ../'
-alias ...='cd ../../'
-alias ....='cd ../../../'
-alias .....='cd ../../../../'
