@@ -66,6 +66,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" Quiet this ERB warning
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {'regex': 'possibly useless use of a variable in void context'}
+
 " stop arrow keys working in insert mode!
 inoremap <Left>  <NOP>
 inoremap <Right> <NOP>
